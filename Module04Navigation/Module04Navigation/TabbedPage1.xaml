@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="#FEE08D"
+             x:Class="Module04Navigation.TabbedPage1" Title="Avien Flaire C. Batul">
+
+    <ContentPage Title="Characters">
+        <StackLayout>
+            <ListView x:Name="ToystoryView" ItemsSource="{Binding Toystories} ">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                        <ImageCell ImageSource="{Binding Image}"
+                       Text="{Binding DisplayName}" 
+                       TextColor="#003049"
+                       Detail="{Binding TagLine}"
+                       DetailColor="#800080">
+                        </ImageCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </StackLayout>
+    </ContentPage>
+    
+    
+    <ContentPage Title="Rate">
+        <StackLayout>
+            <StackLayout HeightRequest="50"/>
+            <Label Text="Please Rate the Movie"
+                   FontSize="Large"
+                   TextColor="#800080"
+                   HorizontalOptions="CenterAndExpand" />
+            <StackLayout HeightRequest="50"/>
+
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection Title="Toy Story Review" TextColor="#800080">
+                        <EntryCell Label="Favorite:" 
+                                   LabelColor="#800080"
+                       Placeholder="Favorite character"
+                       x:Name="fcharac"/>
+
+                        <EntryCell Label="Comment on the movie:" 
+                                   LabelColor="#800080"
+                       Placeholder="Comment"
+                       x:Name="comment"/>
+
+                        <EntryCell Label="Rating:"
+                                   LabelColor="#800080"
+                       Placeholder="Enter your rating of the movie"
+                       x:Name="myRating"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+
+            <Button 
+                Text="Submit" 
+                Clicked="OnSubmitEntry" 
+                BackgroundColor="#800080" />
+
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="About">
+        <StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Toy Story logo -->
+                <Image Source="https://images5.alphacoders.com/119/1197486.jpg" 
+               Grid.Row="0"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Aspect="AspectFit"/>
+
+                <!-- Toy Story image -->
+                <Image Source="https://m.media-amazon.com/images/M/MV5BMTgxOTY4Mjc0MF5BMl5BanBnXkFtZTcwNTA4MDQyMw@@._V1_FMjpg_UX1000_.jpg" 
+               Grid.Row="1"
+               Grid.Column="0"
+               Aspect="AspectFill"/>
+
+                <!-- Text about Toy Story -->
+                <Label Grid.Row="1"
+               Grid.Column="1"
+               Text="Toy Story is a beloved animated film series created by Pixar Animation Studios. It follows the adventures of a group of toys that come to life when humans are not around. The main characters include Woody, Buzz Lightyear, Jessie, and many others. Toy Story has become a cultural phenomenon, captivating audiences of all ages with its heartwarming stories and memorable characters." 
+               TextColor="Black"
+               HorizontalOptions="Start"
+               VerticalOptions="Start" />
+            </Grid>
+        </StackLayout>
+
+    </ContentPage>
+</TabbedPage>
